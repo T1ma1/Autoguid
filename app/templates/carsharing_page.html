@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auto/auto.css') }}">
+{% endblock %}
+
+{% block title %}
+Каршеринг
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="wrapper">
+        <div class="contant-block">
+        <aside class="filter-tour">
+            <form method="GET" action="/carsharing">
+                <div class="filter">
+                    <div class="duration filter__item">
+                        <div class="duration__title filter__title">Длительность
+                            <div class="filter__icon">
+                                <svg class="filter__svg svg1" width="28" height="11" viewBox="0 0 28 11" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+                            </div>
+                        </div>
+                        <div class="duration__value-box filter__value-box">
+                            <div class="duration__bounding-box filter__bounding-box">
+                                <div class="duration__input-box_left filter__input-box filter__input-box_left">
+                                    <label for="dur-day">от (Дней)</label>
+                                    <input class="duration__input-left input-area" id="duration-min" type="text">
+                                </div>
+                                <div class="duration__input-box_right filter__input-box filter__input-box_right">
+                                    <label for="dur-day">До (Дней)</label>
+                                    <input class="duration__input-right input-area" id="duration-max" type="text">
+                                </div>
+                            </div>
+                            <div class="filter__range">
+                                <input type="range" min="1" max="15" class="slider" id="range-left" data-name="day">
+                                <input type="range" min="2" max="16" class="slider" id="range-right">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price filter__item">
+                        <div class="price__title filter__title">Цена
+                            <div class="filter__icon">
+                                <svg class="filter__svg svg2" width="28" height="11" viewBox="0 0 28 11" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+                            </div>
+                        </div>
+                        <div class="price__value-box filter__value-box">
+                            <div class="price__bounding-box filter__bounding-box">
+                                <div class="price__input-box_left filter__input-box filter__input-box_left">
+                                    <label for="price-min">от</label>
+                                    <input class="price__input-left input-area" id="price-min" name="min_price" type="text">
+                                </div>
+                                <div class="price__input-box_right filter__input-box filter__input-box_right">
+                                    <label for="price-max">До</label>
+                                    <input class="price__input-right input-area" id="price-max" name="max_price" type="text">
+                                </div>
+                            </div>
+                            <div class="filter__range">
+                                <input type="range" min="1" max="50000" class="slider" id="range-left" data-name="price" name="min_price_range">
+                                <input type="range" min="50001" max="100000" class="slider" id="range-right" name="max_price_range">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Применить" class="filter__apply-button button">
+                </div>
+            </form>
+        </aside>
+        <section class="auto">
+                <h2 class="auto__title">Авто</h2>
+                <div class="auto__list">
+                    {% for element in carsharings %}
+                    {% set images = element.path_photo.split() %}
+
+                    <div class="card-tour" data-load="card">
+                        <div class="card-tour__slider-box">
+                            <!-- <div class="card-tour__slider-arrow">
+                                <div class="slider-arrow slider-arrow__left"></div>
+                                <div class="slider-arrow slider-arrow__right"></div>
+                            </div> -->
+                            <swiper-container class="card-tour__image" data-length="{{ images |length }}" navigation="true">
+                                {% for image in images %}
+                                    <swiper-slide lazy="true">
+                                        <img src="{{ url_for('static', filename=image) }}" loading="lazy" alt="carsharing photo" class="card-tour__img">
+                                    </swiper-slide>
+                                {% endfor %}
+                            </swiper-container>
+                            <!-- <div class="card-tour__image" data-length="{{ images |length }}">
+                                {% for image in images %}
+                                    <img data-src="{{ url_for('static', filename=image) }}" alt="carsharing photo" class="card-tour__img">
+                                {% endfor %}
+                            </div> -->
+                        </div>
+                        <div class="card-tour__contant">
+                            <div class="card-tour__text">
+                                <h3>{{ element.name }}</h2>
+                                <p class="card-tour__description">Адрес: {{ element.location }}</p>
+                                <p class="card-tour__description">Контакты: {{ element.contact_info }}</p>
+                                <p class="card-tour__description">Время работы: {{ element.working_hours }}</p>
+                                <p class="card-tour__description">Сайт: <a href="{{ element.website }}">{{ element.website }}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+{% endblock %}
+

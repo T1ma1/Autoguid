@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/entertainments.css') }}">
+{% endblock %}
+
+{% block title %}
+Развлечения
+{% endblock %}
+
+
+
+{% block body %}
+<!-- <div class="nav-scroller">
+    <nav class="navbar_entertainments">
+        <ul>
+            <li><a class="nav-scroller_item" href="{{ url_for('entertainments_filter', type_id='all') }}">Все Развлечения</a></li>
+            <li><a class="nav-scroller_item" href="{{ url_for('entertainments_filter', type_id=2) }}">Кинотеатры</a></li>
+            <li><a class="nav-scroller_item" href="{{ url_for('entertainments_filter', type_id=1) }}">Парки</a></li>
+            <li><a class="nav-scroller_item" href="{{ url_for('entertainments_filter', type_id=3) }}">Рестораны/Кафе</a></li>
+            <li><a class="nav-scroller_item" href="{{ url_for('entertainments_filter', type_id=4) }}">Торговые центры</a></li>
+        </ul>
+    </nav>
+</div> -->
+    <!-- <hr> -->
+    <h1 class="Heading"><b>{{ type_name }}</b></h1>
+           <div class="container_enterteiments">
+            {% for element in entertainments %}
+                        {% set images = element.path_photo.split() %}
+                            <div class="card-enterteiments" data-load="card">  
+                                <div class="card-enterteiments__slider-box">
+                                    <div class="card-enterteiments__slider-arrow">
+                                        <div class="slider-arrow slider-arrow__left"></div>
+                                        <div class="slider-arrow slider-arrow__right"></div>
+                                    </div>
+                                    <div class="card-enterteiments__image" data-length="{{ images |length }}">
+                                        {% for image in images %}
+                                            <img data-src="{{ url_for('static', filename=image) }}" alt="Развлечения" class="card-enterteiments__img">
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="card-enterteiments__contant">
+                                    <div class="card-enterteiments__text">
+                                        <p class="card-enterteiments__title">{{ element.name }}</p>
+                                        <p class="card-enterteiments__address">Адрес: {{ element.location }}</p>
+                                        <p class="card-enterteiments__working-hours">Время работы: {{ element.work_time }}</p>
+                                        
+                                        {% if ( element.website == None and element.phone_number != None ) %}
+                                        <p class="card-enterteiments__connection">Контакты:{{ element.phone_number }}</p>
+                                        {% elif ( element.website != None and element.phone_number == None ) %}
+                                        <p class="card-enterteiments__connection">Сайт: <a href="http://{{ element.website }}">{{ element.website }}</a></p>
+                                        {% elif ( element.website == None and element.phone_number == None ) %}
+                                        {% else %}
+                                        <p class="card-enterteiments__connection">Контакты: {{ element.phone_number }}</p>
+                                        <p class="card-enterteiments__connection">Сайт: <a href="http://{{ element.website }}">{{ element.website }}</a></p>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div></b>
+                        {% endfor %}
+            </div>
+            <script src="../static/js/lazyload-entertainments.js"></script>
+            <!-- <script src="../static/js/entertainments.js"></script> -->
+            <script src="../static/js/slideerCardsEntertainment.js"></script>
+{% endblock %}
+

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landmarks/landmarks.css') }}">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='fonts/Ubuntu-Italic.ttf') }}"> -->
+{% endblock %}
+
+{% block title %}
+Достопримечательности Дагестана
+{% endblock %}
+
+{% block body %}
+    <!-------------------------------- Main ----------------------------------------------->
+    <main>
+        <h3 class="attractions">Достопримечательности Дагестана</h3>
+        <p class="descriptions">Добро пожаловать в увлекательный мир достопримечательностей, где каждый шаг открывает перед вами уникальные и захватывающие места, насыщенные историей, культурой и великолепием. Мы приглашаем вас отправиться в захватывающее путешествие, чтобы встретиться с наследием прошлого и открыть новые горизонты сегодняшнего дня. В этой секции вы найдете наши наилучшие рекомендации о местах, которые притягивают тысячи путешественников со всего мира своей уникальностью и привлекательностью. Приготовьтесь к необычайным приключениям и незабываемым впечатлениям, ведь вместе мы отправимся в путешествие, которое будет жить в вашем сердце навсегда.</p>
+        <div class="line"></div>
+        <!--------------------------------- Карточки ------------------------------------------->
+        <div class="cards">
+            {% for element in landmarks %}
+            {% set image = element.path_photo.split()[0] %}
+
+                <div class="onecard" data-load="card">
+                    <img data-src="{{ url_for('static', filename=image) }}" alt="" class="content">
+                    <div class="content">
+                        <div class="basic">
+                            <div class="top">
+                                <div class="left">
+                                    <div class="name">{{ element.name }}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="buttom"><a href="/landmarks/{{ element.id }}">Подробнее</a></div>
+                                </div>
+                            </div>    
+                            <div class="line_in"></div>
+                            <div class="center">
+                                <div class="description_in">{{ element.description[:410] }}...</div> 
+                            </div>
+                            <div class="bottom">
+                                <div class="left">
+                                    <div class="address_in">
+                                        Адрес
+                                        <div class="street">{{ element.location }}</div>
+                                    </div>
+                                </div>  
+                                <div class="right">
+                                    <div class="working_mode">
+                                        Режим работы
+                                        <div class="time">{{ element.work_time }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+      <script src="../static/js/lazyload-landmarks.js"></script>
+    </main>
+
+
+
+    <!-- <script>
+        function handleResize() {
+          var screenWidth = window.innerWidth;
+          var button = document.querySelector('.onecard .buttom');
+          var card = document.querySelector('.onecard');
+      
+          if (screenWidth <= 425) {
+            var link = button.querySelector('a');
+      
+            if (link) {
+              // Перемещаем ссылку на всю карточку
+              card.addEventListener('click', function() {
+                window.location.href = link.href;
+              });
+      
+              link.remove();
+            }
+          } else {
+            var existingLink = document.querySelector('.onecard a');
+      
+            if (!existingLink) {
+              // Восстанавливаем ссылку в кнопке
+              var newLink = document.createElement('a');
+              newLink.href = button.getAttribute('href');
+              newLink.textContent = 'Подробнее';
+              card.appendChild(newLink);
+            }
+          }
+        }
+      
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script> -->
+
+
+    <script>
+        function handleResize() {
+          let screenWidth = window.innerWidth;
+          let cards = document.querySelectorAll('.onecard');
+      
+          cards.forEach(function(card) {
+            let button = card.querySelector('.buttom');
+            let link = button.querySelector('a');
+      
+            if (screenWidth <= 425) {
+              if (link) {
+                // Перемещаем ссылку на всю карточку
+                card.addEventListener('click', function() {
+                  window.location.href = link.href;
+                });
+      
+                link.remove();
+              }
+            } 
+            else {
+              let existingLink = card.querySelector('a');
+      
+              if (!existingLink) {
+                // Восстанавливаем ссылку в кнопке
+                let newLink = document.createElement('a');
+                newLink.href = button.getAttribute('href');
+                newLink.textContent = 'Подробнее';
+                button.appendChild(newLink);
+              }
+            }
+          });
+        }
+      
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+      
+{% endblock %}

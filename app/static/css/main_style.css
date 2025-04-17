@@ -1,0 +1,1222 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+body {
+  margin: auto;
+  padding: 0;
+  background-color: #efefef;
+}
+
+/* html,
+body {
+  overflow-x: hidden;
+} */
+
+/* Шапка */
+
+/* .header_mod {
+ 
+  backdrop-filter: none !important;
+} */
+
+.header_mod {
+  /* margin: 0 auto !important; */
+  /* max-width: 1400px; */
+  width: 100%;
+  padding: 35px 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed !important;
+}
+
+.header {
+  transition: background-color, padding 0.2s;
+}
+
+.header_main {
+  background: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+.header_reformatted {
+  background-color: rgba(0, 0, 0, 0.697);
+  padding: 18px 0;
+  padding-top: 18px !important;
+}
+
+.nav_item {
+  color: #fff !important;
+}
+
+.nav_item:hover {
+  color: rgb(214, 214, 214) !important;
+}
+/* 
+.header-box {
+  padding: 18px 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 55px;
+  background-color: none !important;
+  color: #000;
+  box-shadow: 0 4px 18px 0 #0000001a;
+} */
+
+.logo_main a {
+  background-image: url("../img/logo_main.svg") !important;
+  padding: 80px !important;
+}
+
+.profile-icon {
+  background-image: url("../img/profile-icon-white.svg") !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  padding: 20px;
+}
+
+.profile-wrapper {
+  box-shadow: none !important;
+}
+
+.burgerLine_main {
+  background-color: #ffffff !important;
+}
+
+.burgerLine_main::after,
+.burgerLine_main::before {
+  background-color: #ffffff !important;
+}
+
+.burgerActive .burgerLine_main {
+  background-color: #ff000000 !important;
+}
+
+/* Текст 'Дагестан' */
+.intro {
+  background-image: url(../img/main/intro_img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* padding: 300px 0 100px 0; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.introTitle {
+  text-align: center;
+  font-size: 100px;
+  font-family: "Playfair Display", serif;
+  color: white;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(50px) scale(0.8);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro.show .introTitle {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+
+/* @keyframes introTitleAnimation {
+  from {
+  
+  }
+  to {
+  
+  }
+} */
+
+/* Текст 'Погрузитесь в мир...' */
+.introSubtitle {
+  text-align: center;
+  font-size: 40px;
+  max-width: 625px;
+  margin: 100px auto 0;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro.show .introSubtitle {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+
+@media screen and (max-width: 1280px) {
+  .logo_main a {
+    padding: 70px !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .logo_main a {
+    padding: 70px !important;
+  }
+
+  .nav_link {
+    color: #000 !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .introTitle {
+    font-size: 60px;
+  }
+
+  .introSubtitle {
+    font-size: 24px;
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .logo_main a {
+    padding: 60px !important;
+  }
+  .introTitle {
+    font-size: 40px;
+  }
+
+  .introSubtitle {
+    font-size: 18px;
+    max-width: 250px;
+  }
+}
+
+/* блок приветствия */
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  position: relative;
+  padding: 95px 20px;
+  margin: 60px auto;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* линии сверху и снизу */
+.welcome::before,
+.welcome::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  transition: opacity 0.5, ease transform 0.5s ease;
+}
+
+.welcome::before {
+  top: 0;
+}
+
+.welcome::after {
+  bottom: 0;
+}
+
+.welcome.show::before,
+.welcome.show::after {
+  width: 25%;
+}
+
+/* Добро пожаловать */
+.welcomeTitle {
+  font-size: 58px;
+  max-width: 540px;
+  width: 100%;
+  font-weight: 400;
+  margin-right: 10px;
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.welcome.show .welcomeTitle {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+/* Республика Дагестан */
+.welcomeSubtitle {
+  font-size: 24px;
+  font-weight: 300;
+  width: 100%;
+  transform: translateX(200px);
+  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0;
+}
+
+.welcome.show .welcomeSubtitle {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+@media screen and (max-width: 991px) {
+  .welcome {
+    flex-direction: column;
+    padding: 50px 10px;
+    align-items: center;
+  }
+
+  .welcomeTitle {
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .welcomeSubtitle {
+    margin-top: 40px;
+    text-align: center;
+    max-width: 620px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .welcomeTitle {
+    font-size: 42px;
+    max-width: 400px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 20px;
+    max-width: 450px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .welcomeTitle {
+    font-size: 32px;
+    max-width: 300px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 16px;
+    max-width: 350px;
+  }
+}
+
+/* О Дагестане */
+.about_Dagestan {
+  max-width: 900px;
+  margin: auto;
+}
+
+.about_Dag {
+  text-align: center;
+  font-size: 48px;
+}
+
+.important {
+  display: flex;
+  margin: 90px 0 80px 0;
+  padding: 0;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+  font-size: 32px;
+  gap: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .about_Dagestan {
+    max-width: 700px;
+  }
+  .about_Dag {
+    font-size: 40px;
+  }
+  .important {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about_Dagestan {
+    max-width: 425px;
+  }
+  .about_Dag {
+    font-size: 32px;
+  }
+  .important {
+    font-size: 24px;
+    margin: 60px 0 60px 0;
+  }
+  .intro {
+    background-position: left;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .about_Dagestan {
+    max-width: 375px;
+  }
+  .about_Dag {
+    font-size: 28px;
+  }
+  .important {
+    font-size: 20px;
+    margin: 40px 0 40px 0;
+    gap: 20px;
+  }
+  .intro {
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .about_Dagestan {
+    max-width: 320px;
+  }
+  .about_Dag {
+    font-size: 24px;
+  }
+  .important {
+    font-size: 18px;
+    margin: 40px 0 40px 0;
+  }
+  .intro {
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about_Dagestan {
+    max-width: 280px;
+  }
+  .about_Dag {
+    font-size: 20px;
+  }
+  .important {
+    font-size: 16px;
+    margin: 30px 0 30px 0;
+  }
+  .intro {
+    background-position: center;
+  }
+}
+
+/* Свайперы */
+.Swiper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  height: 100%;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Причины */
+.reasons {
+  margin-top: 140px;
+  font-family: "Montserrat";
+}
+
+.reasonsTitle {
+  font-size: 54px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reasons.show .reasonsTitle {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.reasonsListWrapper {
+  box-sizing: border-box;
+  margin-top: 85px;
+  background-image: url(../img/main/reasons_img.jpg);
+  padding: 25px 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.reasonItem {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 40px 125px;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reasonItem:nth-of-type(even) {
+  transform: translateX(200px);
+  opacity: 0;
+}
+
+.reasonItem:nth-of-type(odd) {
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
+.reasons.show .reasonItem:nth-of-type(even),
+.reasons.show .reasonItem:nth-of-type(odd) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reasonItem:not(:first-of-type) {
+  margin-top: 70px;
+}
+
+.reasonItemTitle {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.reasonItemText {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .reasonsTitle {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .reasonItem {
+    max-width: 900px;
+    padding: 20px 85px;
+  }
+
+  .reasonItemTitle {
+    font-size: 30px;
+  }
+
+  .reasonItemText {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reasons {
+    margin-top: 100px;
+  }
+
+  .reasonsListWrapper {
+    margin-top: 55px;
+  }
+
+  .reasonsTitle {
+    font-size: 30px;
+  }
+
+  .reasonItem {
+    max-width: 600px;
+    padding: 10px 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .reasonsTitle {
+    font-size: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .reasonItem {
+    max-width: 400px;
+    padding: 10px 40px;
+  }
+
+  .reasonItemTitle {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  .reasonItemText {
+    font-size: 14px;
+    margin: 20px 0 10px;
+  }
+}
+
+.Quastions {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.frequent_Questions {
+  text-align: center;
+  font-size: 48px;
+}
+
+.Quastions_list {
+  display: flex;
+  margin: 90px 0 80px 0;
+  padding: 0;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+  font-size: 32px;
+  gap: 30px;
+}
+
+.important_messages {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  background-color: #fff;
+  padding: 30px;
+  border: 1px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(122, 122, 122, 0.25);
+  transition: 0.1s;
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity 1s, transform 1s, background-color 0.1s;
+  overflow: hidden;
+  position: relative;
+}
+
+.Quastions.show .important_messages,
+.about_Dagestan.show .important_messages {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+
+.important_messages:hover {
+  background: rgb(245, 245, 245);
+}
+
+.important_messages p {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: start;
+  transition: height 0.5s, margin-top 0.5s, opacity 0.5s;
+}
+
+@media screen and (max-width: 1024px) {
+  .Quastions {
+    max-width: 700px;
+  }
+  .frequent_Questions {
+    font-size: 40px;
+  }
+  .Quastions_list {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Quastions {
+    max-width: 425px;
+  }
+  .frequent_Questions {
+    font-size: 32px;
+  }
+  .Quastions_list {
+    font-size: 24px;
+    margin: 60px 0 60px 0;
+  }
+  .reasonsListWrapper {
+    background-image: url(../img/main/reasons_mobile.jpg);
+  }
+  .reasonItem {
+    background-color: rgba(224, 224, 244, 0.8);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .Quastions {
+    max-width: 375px;
+    margin: 50px auto;
+  }
+  .frequent_Questions {
+    font-size: 28px;
+  }
+  .Quastions_list {
+    font-size: 20px;
+    margin: 40px 0 40px 0;
+    gap: 20px;
+  }
+  .reasonsListWrapper {
+    background-image: url(../img/main/reasons_mobile.jpg);
+  }
+  .reasonItem {
+    background-color: rgba(224, 224, 244, 0.8);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .Quastions {
+    max-width: 320px;
+  }
+  .frequent_Questions {
+    font-size: 24px;
+  }
+  .Quastions_list {
+    font-size: 18px;
+    margin: 40px 0 40px 0;
+  }
+  .reasonsListWrapper {
+    background-image: url(../img/main/reasons_mobile.jpg);
+  }
+  .reasonItem {
+    background-color: rgba(224, 224, 244, 0.8);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Quastions {
+    max-width: 280px;
+  }
+  .frequent_Questions {
+    font-size: 20px;
+  }
+  .Quastions_list {
+    font-size: 16px;
+    margin: 30px 0 30px 0;
+  }
+  .reasonsListWrapper {
+    background-image: url(../img/main/reasons_mobile.jpg);
+  }
+  .reasonItem {
+    background-color: rgba(224, 224, 244, 0.8);
+  }
+}
+/* @supports (-webkit-appearance:none) {
+  .reasonItem {
+    backdrop-filter: blur(123px);
+  }
+} */
+
+/* О нас */
+.aboutUs {
+  font-family: "Montserrat", sans-serif;
+  max-width: 1200px;
+  margin: 160px auto 0;
+  padding: 0 20px;
+}
+.aboutUsTitle {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 400;
+  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0;
+  transform: translateX(-200px);
+}
+
+.aboutUs.show .aboutUsTitle {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.aboutUsText {
+  margin-top: 50px;
+}
+
+.aboutUsText p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.aboutUsText p:not(:first-of-type) {
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 991px) {
+  .aboutUs {
+    margin: 100px auto 0;
+  }
+
+  .aboutUsTitle {
+    font-size: 50px;
+  }
+
+  .aboutUsText {
+    margin-top: 30px;
+  }
+
+  .aboutUsText p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .aboutUsTitle {
+    font-size: 36px;
+  }
+
+  .aboutUsText p {
+    font-size: 16px;
+  }
+}
+
+/* Карточки */
+.dignity {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin: 115px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "Ubuntu", sans-serif;
+  gap: 100px;
+  padding: 0 20px;
+}
+
+.dignityCard {
+  box-sizing: border-box;
+  padding: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0;
+  transform: translateY(200px);
+  box-shadow: 0 0 20px rgba(122, 122, 122, 0.25);
+}
+
+.dignity.show .dignityCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dignityCardIcon img {
+  width: 100%;
+}
+
+.dignityCardIcon {
+  width: 100px;
+  height: 100px;
+}
+
+.dignityCardTitle {
+  margin: 45px 0;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.dignityCardText {
+  font-size: 26px;
+}
+
+@media screen and (max-width: 991px) {
+  .dignity {
+    gap: 40px;
+    justify-content: center;
+  }
+  .dignityCardTitle {
+    font-size: 32px;
+  }
+
+  .dignityCardText {
+    font-size: 18px;
+  }
+
+  .dignityCardIcon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dignity {
+    grid-template-columns: 1fr;
+  }
+
+  .dignityCard {
+    width: 100%;
+    /* justify-self: center; */
+    padding: 20px;
+  }
+
+  .dignityCardTitle {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+
+  .dignityCardText {
+    font-size: 18px;
+    margin: 10px 0 0;
+  }
+
+  .dignityCardIcon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dignityCardTitle {
+    font-size: 26px;
+  }
+
+  .dignityCardText {
+    font-size: 18px;
+  }
+
+  .dignityCardIcon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Достопримечательности */
+.sights {
+  font-family: "Montserrat";
+  margin: 160px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.sightsTitle {
+  font-size: 48px;
+  max-width: 635px;
+  margin: 0;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.sights.show .sightsTitle {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.sightsShowAll {
+  width: 100%;
+  display: block;
+  text-align: end;
+  margin: 16px 0;
+  text-decoration: none;
+  color: #585858;
+}
+
+.sightsShowAll:hover {
+  text-decoration: underline;
+}
+
+.sightsListWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sightItem {
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #fff;
+  max-width: 280px;
+  transition: 1s;
+  box-shadow: 0 0 20px rgba(122, 122, 122, 0.25);
+}
+
+.sightItem:nth-of-type(even),
+.sightItem:nth-of-type(odd) {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.sights.show .sightItem:nth-of-type(even),
+.sights.show .sightItem:nth-of-type(odd) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sightItemImg {
+  height: 250px;
+}
+
+.sightItemImg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sightItemTitle {
+  font-size: 24px;
+  display: block;
+}
+
+.sightItemText {
+  padding: 8px 18px 40px;
+}
+
+@media screen and (max-width: 1110px) {
+  .sightsListWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .sightItem {
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sightsTitle {
+    font-size: 36px;
+  }
+  .sightsShowAll {
+    margin: 30px 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sightsTitle {
+    font-size: 20px;
+    max-width: 300px;
+  }
+
+  .sightsShowAll {
+    font-size: 14px;
+  }
+
+  .sightItemTitle {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .sightItemText {
+    padding: 4px 8px 20px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .sightsTitle {
+    word-break: break-all;
+    font-size: 18px;
+    max-width: 300px;
+  }
+}
+
+/* Карта */
+.map div {
+  height: 700px;
+  border: 1px solid black;
+}
+
+/* Мобилка */
+.horizons {
+  font-family: "Montserrat", sans-serif;
+  max-width: 1200px;
+  margin: 160px auto;
+  padding: 0 20px;
+}
+
+.horizonsTitle {
+  font-size: 48px;
+  text-align: center;
+  font-size: 500;
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.horizons.show .horizonsTitle {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.horizonsInner {
+  margin-top: 130px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.horizonsText {
+  max-width: 620px;
+  font-size: 30px;
+  margin: 0;
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.horizons.show .horizonsText {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.horizonsImg img {
+  width: 100%;
+  display: block;
+}
+
+.horizonsImg {
+  opacity: 0;
+  transform: translateX(200px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.horizons.show .horizonsImg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 1024px) {
+  .horizons {
+    max-width: 800px;
+  }
+
+  .horizonsTitle {
+    font-size: 32px;
+  }
+
+  .horizonsText {
+    font-size: 24px;
+    max-width: 500px;
+  }
+
+  .horizonsImg {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .horizonsInner {
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .horizonsImg {
+    margin-top: 40px;
+  }
+
+  .horizonsInner {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .horizonsTitle {
+    font-size: 28px;
+  }
+
+  .horizonsText {
+    font-size: 20px;
+  }
+}
+
+/* Команда */
+
+.team {
+  font-family: "Montserrat";
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.teamTitle {
+  font-size: 48px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.teamSubtitle {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 65px auto;
+  text-align: center;
+}
+
+.teammateCard {
+  background-color: #fff;
+  border-radius: 25px;
+  box-sizing: border-box;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(122, 122, 122, 0.25);
+}
+
+.teammatePosition {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+}
+
+.teammatesList {
+  list-style-type: none;
+  padding: 0;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.teammatesWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+@media screen and (max-width: 991px) {
+  .teamTitle {
+    font-size: 32px;
+  }
+
+  .teamSubtitle {
+    font-size: 26px;
+    max-width: 400px;
+    margin: 45px auto;
+  }
+
+  .teammatesWrapper {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .teammatesWrapper {
+    gap: 20px;
+  }
+}

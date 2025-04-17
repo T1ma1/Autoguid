@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landmarks/landmarks_detail.css') }}">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='fonts/Ubuntu-Italic.ttf') }}"> -->
+{% endblock %}
+
+{% block title %}
+{{ landmark.name }}
+{% endblock %}
+
+{% block body %}
+{% set images = landmark.path_photo.split() %}
+
+    <h1 class="name">{{ landmark.name }}</h1>
+    <div class="full_description">
+        <div class="content">
+            <!-- Свайперы -->
+            <div class="Swiper">
+            <swiper-container class="mySwiper" navigation="true">
+                {% for image in images %}
+                <swiper-slide><img src="{{ url_for('static', filename=image) }}" alt=""/></swiper-slide>
+                {% endfor %}
+            </swiper-container>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+            </div>
+            <p class="text">{{ landmark.description }}</p>
+        </div>
+    </div>
+
+    <h3 class="how_get">Как добраться</h3>
+    <div class="map">
+        <a href="https://yandex.ru/maps/?ll={{ coordinates.longitude }},{{ coordinates.latitude }}&z=15&l=map&pt={{ coordinates.longitude }},{{ coordinates.latitude }}&mode=whatshere">
+            <img src="https://static-maps.yandex.ru/1.x/?lang=ru_RU&ll={{ coordinates.longitude }},{{ coordinates.latitude }}&size=600,400&z=15&l=map&pt={{ coordinates.longitude }},{{ coordinates.latitude }},pm2rdm" alt="Карта">
+        </a>
+    </div>
+
+
+{% endblock %}

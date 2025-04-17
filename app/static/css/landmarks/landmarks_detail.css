@@ -1,0 +1,309 @@
+@font-face {
+    font-family: "Ubuntu";
+    src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
+  }
+body {
+    margin: auto;
+    padding: 0;
+    background-color: #efefef;
+    font-family: "Ubuntu", sans-serif;
+}
+/* Название */
+.name{
+    max-width: 1400px;
+    text-align: center;
+    font-size: 64px;
+    padding: 100px 0 100px 0;
+    margin: auto;
+}
+/* Блок с описанием */
+.full_description{
+    max-width: 1400px;
+    margin: 0 auto 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+}
+@media screen and (max-width: 1440px){
+    .name{
+        font-size: 58px;
+        padding: 70px 0 70px 0;
+    }
+    .full_description{
+        max-width: 800px;
+    }
+}
+@media screen and (max-width: 870px){
+    .name{
+        font-size: 50px;
+        padding: 50px 0 50px 0;
+    }
+    .full_description{
+        max-width: 600px;
+    }
+    :root{
+        --swiper-navigation-size: 32px;
+    }
+}
+@media screen and (max-width: 670px){
+    .name{
+        font-size: 42px;
+        padding: 50px 0 50px 0;
+    }
+    .full_description{
+        max-width: 500px;
+    }
+    :root{
+        --swiper-navigation-size: 24px;
+    }
+}
+@media screen and (max-width: 560px){
+    .name{
+        font-size: 36px;
+        padding: 40px 0 40px 0;
+    }
+    .full_description{
+        max-width: 400px;
+    }
+    :root{
+        --swiper-navigation-size: 20px;
+    }
+}
+@media screen and (max-width: 425px){
+    .name{
+        font-size: 28px;
+        padding: 30px 0 30px 0;
+    }
+    .full_description{
+        max-width: 300px;
+    }
+    :root{
+        --swiper-navigation-size: 18px;
+    }
+}
+@media screen and (max-width: 340px){
+    .name{
+        font-size: 24px;
+        padding: 20px 0 20px 0;
+    }
+    .full_description{
+        max-width: 230px;
+    }
+    :root{
+        --swiper-navigation-size: 12px;
+    }
+}
+/* Внутренность блока */
+.content{
+    font-size: 32px;
+    font-family: 'Ubunru', sans-serif;
+    padding: 3% 8%;
+    box-shadow: 0 0 20px rgba(122,122,122,0.5);
+}
+/* Свайепры */
+swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+swiper-slide img {
+    max-width: 1000px;
+    height: 600px;
+    object-fit: cover;
+    margin: 4% 8%;
+}
+.empty_string{
+    height: 20px;
+}
+@media screen and (max-width: 1440px){
+    .content{
+        font-size: 28px;
+    }
+    swiper-slide img {
+        max-width: 580px;
+        height: 320px;
+        object-fit: cover;
+        margin: 5% 8%;
+    }
+    .empty_string{
+        height: 20px;
+    }
+}
+@media screen and (max-width: 870px){
+    .content{
+        font-size: 24px;
+    }
+    swiper-slide img {
+        max-width: 420px;
+        height: 230px;
+        object-fit: cover;
+        margin: 4% 7%;
+    }
+    .empty_string{
+        height: 15px;
+    }
+}
+@media screen and (max-width: 670px){
+    .content{
+        font-size: 22px;
+    }
+    swiper-slide img {
+        max-width: 330px;
+        height: 190px;
+        object-fit: cover;
+        margin: 4% 8%;
+    }
+    .empty_string{
+        height: 10px;
+    }
+}
+@media screen and (max-width: 560px){
+    .content{
+        font-size: 20px;
+    }
+    swiper-slide img {
+        max-width: 250px;
+        height: 140px;
+        object-fit: cover;
+        margin: 4% 5%;
+    }
+    .empty_string{
+        height: 10px;
+    }
+}
+@media screen and (max-width: 425px){
+    .content{
+        font-size: 14px;
+    }
+    swiper-slide img {
+        max-width: 190px;
+        height: 110px;
+        object-fit: cover;
+        margin: 4% 8%;
+    }
+    .empty_string{
+        height: 5px;
+    }
+}
+@media screen and (max-width: 340px){
+    .content{
+        font-size: 12px;
+    }
+    swiper-slide img {
+        max-width: 200px;
+        height: 100px;
+        object-fit: cover;
+        margin: 4% 4%;
+    }
+    .empty_string{
+        height: 0px;
+    }
+}
+/* Как добраться */
+.how_get{
+    max-width: 1400px;
+    text-align: center;
+    font-size: 36px;
+    padding: 100px 0 100px 0;
+    margin: auto;
+}
+/* Карта */
+.map{
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    margin: auto auto 100px auto;
+    box-shadow: 0 0 20px rgba(122,122,122,0.25);
+}
+.map a img{
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    margin: auto auto 100px auto;
+}
+@media screen and (max-width: 1440px) {
+    .map{
+        width: 600px;
+        height: 380px;
+    }
+    .map a img{
+        width: 600px;
+        height: 380px;
+    }
+    .how_get{
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 870px) {
+    .map{
+        width: 500px;
+        height: 280px;
+    }
+    .map a img{
+        width: 500px;
+        height: 280px;
+    }
+    .how_get{
+        font-size: 28px;
+        padding: 70px 0 70px 0;
+    }
+}
+@media screen and (max-width: 670px) {
+    .map{
+        width: 400px;
+        height: 220px;
+    }
+    .map a img{
+        width: 400px;
+        height: 220px;
+    }
+    .how_get{
+        font-size: 22px;
+        padding: 50px 0 50px 0;
+    }
+}
+@media screen and (max-width: 560px) {
+    .map{
+        width: 330px;
+        height: 170px;
+    }
+    .map a img{
+        width: 330px;
+        height: 170px;
+    }
+    .how_get{
+        font-size: 20px;
+        padding: 40px 0 40px 0;
+    }
+}
+@media screen and (max-width: 425px) {
+    .map{
+        width: 260px;
+        height: 150px;
+    }
+    .map a img{
+        width: 260px;
+        height: 150px;
+    }
+    .how_get{
+        font-size: 18px;
+        padding: 30px 0 30px 0;
+    }
+}
+@media screen and (max-width: 340px) {
+    .map{
+        width: 200px;
+        height: 130px;
+    }
+    .map a img{
+        width: 200px;
+        height: 130px;
+    }
+    .how_get{
+        font-size: 16px;
+        padding: 30px 0 30px 0;
+    }
+}

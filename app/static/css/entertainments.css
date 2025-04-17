@@ -1,0 +1,244 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: gainsboro;
+  font-family: "Ubuntu", sans-serif;
+  background-image: url(../img/mount.svg);
+}
+.navbar_entertainments ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  list-style-type: none;
+}
+.navbar_entertainments li {
+  width: 187px;
+  text-align: center;
+  height: 26px;
+  font-size: 19px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 19px;
+}
+hr {
+  margin: 0 auto;
+  border: solid 2px #c4c4c4;
+  border-radius: 9px;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.Heading {
+  text-align: center;
+  margin: 86px 0;
+}
+.card-enterteiments {
+  background-color: #fff;
+  max-width: 377px;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: 5px;
+  margin-left: 10px;
+  box-shadow: 0 0 20px rgba(122,122,122,0.25);
+}
+
+.card-enterteiments__image {
+  width: 377px;
+  height: 252px;
+  display: flex;
+  transition: all 0.5s ease-in-out;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.card-enterteiments__img {
+  width: 100%;
+  min-width: 377px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.card-enterteiments-more {
+  background: #3f3f3f;
+  border-radius: 9px;
+  color: #fff;
+}
+.card-enterteiments__slider-box {
+  position: relative;
+  width: 100%;
+}
+.card-enterteiments__slider-box:hover
+  .card-enterteiments__slider-arrow
+  .slider-arrow {
+  opacity: 1;
+}
+.card-enterteiments__slider-arrow {
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+}
+.slider-arrow {
+  background-image: url(../img/cards/icon-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+.slider-arrow__left {
+  transform: rotate(180deg);
+}
+.card-enterteiments__title {
+  text-align: center;
+  font-size: 32px;
+  margin: 10px;
+  font-weight: 400;
+  line-height: 36px;
+}
+.card-enterteiments__address {
+  padding: 5px;
+  margin: 0;
+  font-weight: 400;
+  padding-left: 25px;
+  text-transform: capitalize;
+}
+.card-enterteiments__working-hours {
+  padding: 5px;
+  margin: 0;
+  padding-left: 25px;
+  text-transform: capitalize;
+}
+.card-enterteiments__connection {
+  padding: 5px;
+  margin: 2px;
+  padding-left: 25px;
+}
+
+.container_enterteiments {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 1237px;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1440px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  /* hr {
+    width: 1247px;
+  } */
+}
+@media screen and (max-width: 1210px) {
+  .card-enterteiments {
+    width: 330px;
+  }
+}
+@media screen and (max-width: 1064px) {
+  .container_enterteiments {
+    justify-content: center;
+  }
+  .card-enterteiments {
+    width: 319px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  .card-enterteiments {
+    width: 310px;
+  }
+  /* hr {
+    width: 958px;
+  } */
+  .navbar_entertainments li {
+    width: 155px;
+    font-size: 15px;
+    height: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  .card-enterteiments {
+    width: 353px;
+  }
+  /* hr {
+    width: 100%;
+  } */
+  .navbar_entertainments li {
+    width: 122px;
+  }
+  .slider-arrow {
+    display: none;
+  }
+}
+@media screen and (max-width: 712px) {
+  .nav-scroller {
+    overflow-y: hidden;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  .navbar_entertainments {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  .navbar_entertainments li {
+    margin-right: 5px;
+  }
+   .navbar_entertainments li:active {
+    background-color: #fff59d;
+  }
+}
+@media screen and (max-width: 425px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  .card-enterteiments {
+    width: 377px;
+  }
+  /* hr {
+    width: 390px;
+  } */
+}
+
+@media screen and (max-width: 375px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  /* hr {
+    width: 340px;
+  } */
+}
+
+@media screen and (max-width: 320px) {
+  .container_enterteiments {
+    width: 100%;
+  }
+  /* hr {
+    width: 286px;
+  } */
+}

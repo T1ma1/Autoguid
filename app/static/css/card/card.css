@@ -1,0 +1,113 @@
+:root {
+  --card-title-size: 19px;
+  --desc-size: 13px;
+  --title-line-height: 25px;
+  --color-text: #000000;
+}
+.card-tour {
+  background-color: #fff;
+  max-width: 292px;
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  box-shadow: 0 0 20px rgba(122,122,122,0.25);
+}
+.card-tour__image {
+  width: 100%;
+  height: 232px;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  transition: all 0.5s ease-in-out;
+}
+.card-tour__img {
+  width: 100%;
+  min-width: 292px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.card-tour__contant {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  row-gap: 45px;
+  padding: 0 20px 15px 10px;
+  height: 100%;
+}
+.card-tour__text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+.card-tour__title {
+  font-size: var(--card-title-size);
+  line-height: var(--title-line-height);
+  text-align: justify;
+  color: var(--color-text);
+}
+.card-tour__description {
+  font-weight: 500;
+  font-size: var(--desc-size);
+  line-height: 15px;
+  color: var(--color-text);
+}
+.card__price {
+  font-weight: 800;
+}
+.card-tour__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-tour__btn-more {
+  background: #3F3F3F;
+  border-radius: 9px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.card-tour__slider-box {
+  position: relative;
+  width: 100%;
+}
+.card-tour__slider-box:hover .card-tour__slider-arrow .slider-arrow {
+    opacity: 1;
+}
+.card-tour__slider-arrow {
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+}
+.slider-arrow {
+  background-image: url(../../img/cards/icon-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider-arrow__left {
+  transform: rotate(180deg);
+}
+
+[data-load] {
+  opacity: 0;
+  transform: translateY(140px);
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+[data-load].loaded {
+  opacity: 1;
+  transform: translateY(0px);
+}

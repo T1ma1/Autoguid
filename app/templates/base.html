@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    {% block link %}{% endblock %}
+    <!-- FONTS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='fonts/Ubuntu/Ubuntu-Light.ttf') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <!-- ФАВИКОН -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/favicon_light.ico') }}"
+      id="faviconTag"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/favicon_dark.ico') }}"
+      id="faviconTag"
+    />
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+
+  <body>
+    <!-- <div class="all__wrapper"> -->
+    <!-- Header -->
+    <header class="header header_mod">
+      <div class="wrapper">
+        <div class="header-box header_main">
+          <div class="logoWrapper logo_main">
+            <a href="/">
+              <!-- <img src="../static/img/autogid-logo.svg" alt="" /> -->
+            </a>
+          </div>
+
+          <div class="navigation">
+            <button class="burgerBtn">
+              <span class="burgerLine burgerLine_main"></span>
+            </button>
+
+            <nav class="menu">
+              <a href="/" class="burger-logo">
+                <img src="../static/img/logo.svg" alt="" />
+              </a>
+              <a href="/landmarks" class="nav_item nav_link"
+                >Достопримечательности</a
+              >
+              <a href="/tours" class="nav_item nav_link">Туры</a>
+              <a href="/hotels" class="nav_item nav_link">Отели</a>
+              <a href="/carsharing" class="nav_item nav_link">Авто</a>
+              <!-- <a href="/entertainments">Развлечения</a> -->
+              <div class="entertainments_wrapper nav_item nav_link">
+                <div class="entertainments_pointer">
+                  Развлечения
+                  <span class="entertainments__arrow">›</span>
+                </div>
+                <div class="entertainments_links__wrapper">
+                  <div class="entertainments_links">
+                    <a
+                      class="entertainments_link nav_link"
+                      href="{{ url_for('entertainments_filter', type_id='all') }}"
+                      >Все развлечения</a
+                    >
+                    <a
+                      class="entertainments_link nav_link"
+                      href="{{ url_for('entertainments_filter', type_id=2) }}"
+                      >Кинотеатры</a
+                    >
+                    <a
+                      class="entertainments_link nav_link"
+                      href="{{ url_for('entertainments_filter', type_id=1) }}"
+                      >Парки</a
+                    >
+                    <a
+                      class="entertainments_link nav_link"
+                      href="{{ url_for('entertainments_filter', type_id=3) }}"
+                      >Рестораны / Кафе</a
+                    >
+                    <a
+                      class="entertainments_link nav_link"
+                      href="{{ url_for('entertainments_filter', type_id=4) }}"
+                      >Торговые центры</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="profile-wrapper">
+            <div class="profile-icon"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main__content">{% block body %}{% endblock %}</main>
+
+    <!-- Footer -->
+    <footer class="footer__wrapper">
+      <div class="footer">
+        <div class="project_name footer__block">
+          <div class="footer__title">
+            <img src="../static/img/logo.svg" alt="Автогид" />
+          </div>
+          <p class="about_project">
+            Мы рады приветствовать вас на нашем сайте, посвященном туризму. Мы -
+            команда опытных и страстных путешественников, объединенных общей
+            целью - помочь вам создать незабываемые впечатления и открыть для
+            себя удивительные места по всей республике.
+          </p>
+        </div>
+
+        <div class="footer__nav__wrapper footer__block">
+          <h3 class="footer__title">навигация</h3>
+          <div class="footer__nav">
+            <a href="/landmarks" class="footer__nav_link"
+              >Достопримечательности</a
+            >
+            <a href="/tours" class="footer__nav_link">Туры</a>
+            <a href="/hotels" class="footer__nav_link">Отели</a>
+            <a href="/carsharing" class="footer__nav_link">Авто</a>
+            <a href="/entertainments" class="footer__nav_link">Развлечения</a>
+          </div>
+        </div>
+
+        <div class="footer__contacts__wrapper footer__block">
+          <h3 class="footer__title">контакты</h3>
+          <div class="footer__contacts">
+            <div class="footer__contact__item">
+              <img src="../static/img/main-icon.svg" alt="" />
+              <span>avtogid05@mail.ru</span>
+            </div>
+
+            <div class="footer__contact__item">
+              <img src="../static/img/whatsapp-icon.svg" alt="" />
+              <span>Whatsapp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Кнопка для перехожа в начало страницы -->
+    <div class="btn-up btn-up_hide"></div>
+    <!-- </div> -->
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/base.js') }}"
+    ></script>
+    <script type="module" src="../static/js/lazyLoading.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script>
+      const faviconTag = document.getElementById("faviconTag");
+      const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const changeFavicon = () => {
+        if (isDark.matches)
+          faviconTag.href = "/app/static/img/favicon_light.ico";
+        else faviconTag.href = "/app/static/img/favicon_dark.ico";
+      };
+
+      changeFavicon();
+
+      setInterval(changeFavicon, 1000);
+    </script>
+  </body>
+</html>

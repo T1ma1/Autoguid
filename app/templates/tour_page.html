@@ -1,0 +1,207 @@
+{% extends 'base.html' %} {% block link %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/tour/tour.css') }}"
+/>
+{% endblock %} {% block title %} Туры по Дагестану {% endblock %} {% block body
+%}
+<main>
+  <div class="wrapper">
+    <div class="contant-block">
+      <h2 class="tour-title">Туры по Дагестану</h2>
+      <section class="tour-section">
+        <!--Заголовок-->
+        <div class="filter__open-button">
+          <img src="../static/img/filter-icon.svg" alt="" />
+          <span>Фильтры</span>
+        </div>
+        <aside class="filter-tour">
+          <form method="GET" action="/tours">
+            <div class="filter">
+              
+              <div class="filter-mobile__header">
+                <h3>Фильтры</h3>
+                <span class="filter__close-button">×</span>
+              </div>
+
+              <div class="duration filter__item">
+                <div class="duration__title filter__title">
+                  Длительность
+                  <div class="filter__icon">
+                    <svg
+                      class="filter__svg svg1"
+                      width="28"
+                      height="11"
+                      viewBox="0 0 28 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    ></svg>
+                  </div>
+                </div>
+                <div class="duration__value-box filter__value-box">
+                  <div class="duration__bounding-box filter__bounding-box">
+                    <div
+                      class="duration__input-box_left filter__input-box filter__input-box_left"
+                    >
+                      <label for="dur-day">от (Дней)</label>
+                      <input
+                        class="duration__input-left input-area"
+                        id="duration-min"
+                        type="text"
+                      />
+                    </div>
+                    <div
+                      class="duration__input-box_right filter__input-box filter__input-box_right"
+                    >
+                      <label for="dur-day">До (Дней)</label>
+                      <input
+                        class="duration__input-right input-area"
+                        id="duration-max"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="filter__range">
+                    <input
+                      type="range"
+                      min="1"
+                      max="15"
+                      class="slider"
+                      id="range-left"
+                      data-name="day"
+                    />
+                    <input
+                      type="range"
+                      min="2"
+                      max="16"
+                      class="slider"
+                      id="range-right"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="price filter__item">
+                <div class="price__title filter__title">
+                  Цена
+                  <div class="filter__icon">
+                    <svg
+                      class="filter__svg svg2"
+                      width="28"
+                      height="11"
+                      viewBox="0 0 28 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    ></svg>
+                  </div>
+                </div>
+                <div class="price__value-box filter__value-box">
+                  <div class="price__bounding-box filter__bounding-box">
+                    <div
+                      class="price__input-box_left filter__input-box filter__input-box_left"
+                    >
+                      <label for="price-min">от</label>
+                      <input
+                        class="price__input-left input-area"
+                        id="price-min"
+                        name="min_price"
+                        type="text"
+                      />
+                    </div>
+                    <div
+                      class="price__input-box_right filter__input-box filter__input-box_right"
+                    >
+                      <label for="price-max">До</label>
+                      <input
+                        class="price__input-right input-area"
+                        id="price-max"
+                        name="max_price"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="filter__range">
+                    <input
+                      type="range"
+                      min="1"
+                      max="50000"
+                      class="slider"
+                      id="range-left"
+                      data-name="price"
+                      name="min_price_range"
+                    />
+                    <input
+                      type="range"
+                      min="50001"
+                      max="100000"
+                      class="slider"
+                      id="range-right"
+                      name="max_price_range"
+                    />
+                  </div>
+                </div>
+              </div>
+              <input
+                type="submit"
+                value="Применить"
+                class="filter__apply-button button"
+              />
+            </div>
+          </form>
+        </aside>
+        <div class="tour-section__list">
+          {% for element in tours %} {% set images = element.path_photo.split()
+          %}
+          <div class="card-tour" data-load="card">
+            <!--Карточка 1-->
+            <div class="card-tour__slider-box">
+              <!-- <div class="card-tour__slider-arrow">
+                <div class="slider-arrow slider-arrow__left"></div>
+                <div class="slider-arrow slider-arrow__right"></div>
+              </div> -->
+              <swiper-container class="card-tour__image" navigation="true" pagination="true" data-length="{{ images |length }}">
+                {% for image in images %}
+                <swiper-slide lazy="true"><img loading="lazy"
+                  src="{{ url_for('static', filename=image) }}"
+                  alt="Горы"
+                  class="card-tour__img"
+                /></swiper-slide>
+                {% endfor %}
+              </swiper-container>
+              <!-- <div class="card-tour__image" data-length="{{ images |length }}">
+                {% for image in images %}
+                  <img
+                    data-src="{{ url_for('static', filename=image) }}"
+                    alt="Горы"
+                    class="card-tour__img"
+                  />
+                {% endfor %}
+              </div> -->
+            </div>
+            <div class="card-tour__contant">
+              <div class="card-tour__text">
+                <h3 class="card-tour__title">{{ element.tour_name }}</h3>
+                <p class="card-tour__description">
+                  {{ element.description[:90] }}...
+                </p>
+              </div>
+              <div class="card-tour__buttons">
+                {% if element.price == None %}
+                <div class="card__price">Цена не указана</div>
+                {% else %}
+                <div class="card__price">{{ element.price }} ₽</div>
+                {% endif %}
+                <a
+                  href="/tours/{{ element.id }}"
+                  class="card-tour__btn-more button"
+                  >Подробнее
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+{% endblock %}

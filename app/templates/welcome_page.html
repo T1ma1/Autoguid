@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block link %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/welcome_page_style.css') }}"
+/>
+{% endblock %} {% block title %} Welcome to Dagestan! {% endblock %} {% block
+body %}
+<div class="intro">
+  <div class="video">
+    <video
+      class="video__media"
+      src="{{ url_for('static', filename='video/Welcome.mp4') }}"
+      autoplay
+      muted
+      loop
+    ></video>
+  </div>
+
+  <!-- <div class="intro__content"> -->
+    <!-- <div class="container"> -->
+      <!-- <h2 class="intro__title"> -->
+        <a href="/main" class="intro__link">Начать путешествие</a>
+      <!-- </h2> -->
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
+
+{% endblock %}

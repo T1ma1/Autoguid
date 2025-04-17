@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tour/tour-details.css') }}">
+{% endblock %}
+
+{% block title %}
+{{ tour.tour_name  }}
+{% endblock %}
+
+
+{% block body %}
+{% set image = tour.path_photo.split()[0] %}
+  <section class="tour-detail">
+      <div class="tour-detail__title-box">
+        <div class="tour-detail__main-image">
+          <img src="{{ url_for('static', filename=image) }}" alt="">
+        </div>
+        <div class="quick-desc">
+          <div class="quick-desc__title">{{ tour.tour_name }}</div>
+          <div class="quick-desc__options">
+            <div class="quick-desc__item">{{ tour.price }}</div>
+            <div class="quick-desc__item">3 дня и 2 ночи</div>
+            <div class="quick-desc__item">1-4 человек</div>
+          </div>
+          <div class="quick-desc__buttons">
+            {% if tour_agency.website == None %}
+            <a href="" class="button-booking">Забронировать</a>
+            {% else %}
+            <a href="http://{{ tour_agency.website }}" class="button-booking">Забронировать</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="tour-detail__description-box">
+        <div class="description-tour">
+          <h2 class="description-tour__days">Описание</h2>
+          <div class="desciption-tour__item">
+            <!-- <div class="description-tour__time">9:00</div> -->
+            <div class="description-tour__direction">
+              <!-- <h3 class="description-tour__sight-name"></h3> -->
+              <!--  -->
+              <pre class="description-tour__text">{{ tour.description }}</pre> 
+              <!--  -->
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,342 @@
+{% extends 'base.html' %} {% block title %} Главная страница {% endblock %} {%
+block link %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/main_style.css') }}"
+/>
+<!-- <link rel="stylesheet" href="/fonts/UFL.txt"> -->
+<!-- <link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+  rel="stylesheet"
+/> -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='fonts/Ubuntu-Italic.ttf') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='fonts/PlayfairDisplay-SemiBold.ttf') }}"
+/>
+{% endblock %} {% block body %}
+
+<main>
+  <!-- Main content -->
+  <section class="intro animated">
+    <h1 class="introTitle">ДАГЕСТАН</h1>
+    <h4 class="introSubtitle">
+      <i> Погрузитесь в мир исторической красоты и культурного разнообразия </i>
+    </h4>
+  </section>
+
+  <!-- Приветствие -->
+  <section class="welcome animated">
+    <div class="welcomeTitle">Добро Пожаловать В Мир Республики Дагестан</div>
+    <p class="welcomeSubtitle">
+      Республика Дагестан - это уникальное место, где сочетаются древние
+      традиции и современность, где культурное наследие и природное богатство
+      создают неповторимый опыт для путешественников. Здесь вы сможете
+      проникнуться величием и многогранностью этого прекрасного региона, оставив
+      незабываемые впечатления.
+    </p>
+  </section>
+
+  <!-- О Дагестане -->
+  <section class="about_Dagestan animated">
+    <h2 class="about_Dag">О Дагестане</h2>
+    <ul class="important">
+      <li class="important_messages">
+        История Дагестана
+      </li>
+      <li class="important_messages">
+        Кухня Дагестана
+      </li>
+      <li class="important_messages">
+        События
+      </li>
+    </ul>
+  </section>
+
+  <!-- Картинки -->
+  <section class="Swiper">
+    <swiper-container class="mySwiper" navigation="true">
+      <swiper-slide
+        ><img
+          src="{{ url_for('static', filename='img/main/swiper_img_2.jpg') }}"
+          alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img
+          src="{{ url_for('static', filename='img/main/swiper_img_3.jpg') }}"
+          alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img
+          src="{{ url_for('static', filename='img/main/swiper_img_1.png') }}"
+          alt=""
+      /></swiper-slide>
+    </swiper-container>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+  </section>
+
+  <!-- Причины -->
+  <section class="reasons animated">
+    <h3 class="reasonsTitle">Причины поехать в Дагестан</h3>
+
+    <div class="reasonsListWrapper">
+      <div class="reasonItem">
+        <h4 class="reasonItemTitle">1. Богатое культурное наследие</h4>
+        <p class="reasonItemText">
+          Республика Дагестан - это настоящий культурный калейдоскоп, где
+          существует более 30 национальностей с их уникальными традициями,
+          языками и обычаями. Посетите древние крепости и усадьбы, чтобы ощутить
+          дух истории, исследуйте национальные музеи и галереи, чтобы
+          погрузиться в богатое наследие региона. Здесь вы сможете увидеть
+          танцы, музыку и ремесла, передающие уникальную культурную идентичность
+          дагестанских народов.
+        </p>
+      </div>
+
+      <div class="reasonItem">
+        <h4 class="reasonItemTitle">2. Удивительная природа</h4>
+        <p class="reasonItemText">
+          Дагестан предлагает великолепные природные ландшафты, которые оставят
+          вас безмолвными от изумления. От величественных горных вершин до
+          кристально чистых озер и живописных побережий Каспийского моря - здесь
+          вы найдете все, что нужно для настоящего приключения на свежем
+          воздухе. Восхититесь красотой Гимрельского каньона, исследуйте
+          городские парки и сады, или отправьтесь в путешествие по горам и
+          ущельям, чтобы ощутить силу и величие природы.
+        </p>
+      </div>
+
+      <div class="reasonItem">
+        <h4 class="reasonItemTitle">3. Вкусная и разнообразная кухня</h4>
+        <p class="reasonItemText">
+          Дагестанская кухня - это настоящее удовольствие для гурманов.
+          Изысканные блюда, приготовленные из свежих местных продуктов, оставят
+          в вас незабываемый вкус. Попробуйте местные деликатесы, такие как
+          шашлык из местного мяса, плов с ароматными специями или традиционные
+          пироги. Каждый глоток и каждый кусочек откроют вам новые вкусовые
+          грани и позволят вам погрузиться в аутентичный кулинарный мир
+          Дагестана.
+        </p>
+      </div>
+
+      <div class="reasonItem">
+        <h4 class="reasonItemTitle">4. Гостеприимство народов</h4>
+        <p class="reasonItemText">
+          Посещение Дагестана - это не только знакомство с его культурой и
+          природой, но и возможность испытать истинное дагестанское
+          гостеприимство. Местные жители готовы принять вас с открытыми
+          объятиями и показать вам свою уникальную культуру и традиции. Вы
+          почувствуете себя желанным гостем и узнаете о народных обычаях и
+          ритуалах, которые пронизывают жизнь дагестанцев.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Часто задаваемые вопросы -->
+  <section class="Quastions animated">
+    <h2 class="frequent_Questions">Часто задаваемые вопросы</h2>
+    <ul class="Quastions_list">
+      <li class="important_messages dropdown_questions">
+        <span>Насколько безопасно отдыхать в республике?</span>
+        <p>
+          Отдых в Дагестане безопасен: можете спокойно приезжать и
+          путешествовать по городам и горным посёлкам. Здесь вы почувствуете
+          настоящее кавказское гостеприимство: вас радушно примут и вкусно
+          накормят, с вами тепло пообщаются.
+        </p>
+      </li>
+      <li class="important_messages dropdown_questions">
+        <span>Что взять на отдых?</span>
+        <p>
+          Из одежды рекомендуем взять ветрозащитную куртку или ветровку, легкие
+          треккинговые штаны, толстовку, набор обычной городской одежды,
+          купальник/плавки для моря. Из обуви: кроссовки.
+        </p>
+      </li>
+      <li class="important_messages dropdown_questions">
+        <span>Есть ли банкоматы?</span>
+        <p>
+          Банкоматы в Дагестане есть, и их не мало. Картой можно расплачиваться
+          в супермаркетах, отелях, магазинах и других местах. Но наличные деньги
+          во время поездки тоже потребуются, определенный запас с собой нужно
+          взять. Особенно если вы планируете находиться не только в городах, но
+          и в горных селениях или курортных поселках.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- О нас -->
+  <section class="aboutUs animated">
+    <h2 class="aboutUsTitle">О нас</h2>
+    <div class="aboutUsText">
+      <p>
+        Добро пожаловать в мир путешествий и пирключений! Мы рады приветствовать
+        вас на нашем сайте, посвященному туризму. Мы - команда опытных и
+        страстных путешественников, объедененных общей целью - помочь вам
+        создать незабываемые впечатления и открыть для себя удвительные места по
+        всей республике.
+      </p>
+      <p>
+        Что делает наш сайт особенным? Мы тщательно подобрали лучшие функции и
+        сервисы, чтобы удовлетворить все ваши потребности и предвтавить вам
+        полный контроль над вашим путешествием.
+      </p>
+    </div>
+  </section>
+
+  <!-- Достоинства -->
+  <section class="dignity animated">
+    <div class="dignityCard">
+      <div class="dignityCardIcon">
+        <img src="../static/img/about-us-icons/map-icon.svg" alt="" />
+      </div>
+      <b class="dignityCardTitle">Увлекательные туры</b>
+      <p class="dignityCardText">
+        Насыщенные программы с яркими и униакльными локациями
+      </p>
+    </div>
+    <div class="dignityCard">
+      <div class="dignityCardIcon">
+        <img src="../static/img/about-us-icons/auto-icon.svg" alt="" />
+      </div>
+      <b class="dignityCardTitle">Доступный транспорт</b>
+      <p class="dignityCardText">Разнообразность каршеринга и услуг авто</p>
+    </div>
+    <div class="dignityCard">
+      <div class="dignityCardIcon">
+        <img src="../static/img/about-us-icons/menu-icon.svg" alt="" />
+      </div>
+      <b class="dignityCardTitle">Национальное меню</b>
+      <p class="dignityCardText">
+        Изысканные блюда, приготовленные из свежих местных продуков
+      </p>
+    </div>
+    <div class="dignityCard">
+      <div class="dignityCardIcon">
+        <img src="../static/img/about-us-icons/hotels-icon.svg" alt="" />
+      </div>
+      <b class="dignityCardTitle">Уютные отели</b>
+      <p class="dignityCardText">
+        Широкий выбор комфортабельных и стильных гостинниц
+      </p>
+    </div>
+  </section>
+
+  <!-- Достопримечательности Республики -->
+  <section class="sights animated">
+    <h2 class="sightsTitle">Достопримечательности республики Дагестан</h2>
+    <!-- Кнопка для перехода к достопримечательностям -->
+    <a href="/landmarks" class="sightsShowAll">Показать все</a>
+    <!-- Здесь надо вставить инфу про достопримечательнсти -->
+
+    <div class="sightsListWrapper">
+      {% for element in landmarks %} {% set image =
+      element.path_photo.split()[0] %}
+      <div class="sightItem">
+        <div class="sightItemImg">
+          <a href="/landmarks/{{ element.id }}">
+            <img src="{{ url_for('static', filename=image) }}" alt="" />
+          </a>
+        </div>
+        <div class="sightItemText">
+          <b class="sightItemTitle">{{ element.name }}</b>
+          <p class="sightItemSubtitle">Время работы: {{ element.work_time }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Карта ОБЯЗАТЕЛЬНО ВЕРНУТЬ ПОТОМ -->
+  <!-- <section class="map">
+      <div></div>
+    </section> -->
+
+  <!-- Откорой горизонты -->
+  <section class="horizons animated">
+    <h2 class="horizonsTitle">
+      Открой новые горизонты с нашим мобильным приложением!
+    </h2>
+    <div class="horizonsInner">
+      <p class="horizonsText">
+        Добро пожаловать в захватывающий мир нашего мобильного прилложения! Если
+        ты ищешь способ расширить свои горизонты, найти новые возможности и
+        получить удовольствие от уникального пользовательского опыта, а также
+        воспользоваться удивительной функцией <b>Автогида</b>, то ты попал по
+        адресу.
+      </p>
+
+      <div class="horizonsImg">
+        <img
+          src="{{ url_for('static', filename='img/main/phone_img.png') }}"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Команда -->
+  <section class="team animated">
+    <h2 class="teamTitle">Команда</h2>
+    <p class="teamSubtitle">Проект Ассоциации (школьников айтишников)</p>
+
+    <div class="teammatesWrapper">
+      <div class="teammateCard">
+        <h6 class="teammatePosition">Дизайн</h6>
+        <ul class="teammatesList">
+          <li>Джамалудинов Магомед</li>
+          <li>Мусаев Давуд</li>
+        </ul>
+      </div>
+
+      <div class="teammateCard">
+        <h6 class="teammatePosition">Фронтенд</h6>
+        <ul class="teammatesList">
+          <li>Магомедов Муртазали</li>
+          <li>Мурадагаев Джамалудин</li>
+          <li>Янаркаев Хасамбек</li>
+          <li>Сайбулаев Шайхали</li>
+        </ul>
+      </div>
+
+      <div class="teammateCard">
+        <h6 class="teammatePosition">Бэкенд</h6>
+        <ul class="teammatesList">
+          <li>Умалатов Тимерлан</li>
+          <li>Ибрагимов Юнус</li>
+          <li>Раджабов Али</li>
+          <li>Магомедов Умар</li>
+          <li>Шахмарданов Ибрагим</li>
+          <li>Мирзоев Магомед</li>
+        </ul>
+      </div>
+
+      <div class="teammateCard">
+        <h6 class="teammatePosition">Генеральный директор</h6>
+        <ul class="teammatesList">
+          <li>Гаджирамазанов Дауд Шамилевич</li>
+        </ul>
+      </div>
+
+      <div class="teammateCard">
+        <h6 class="teammatePosition">Мобильная разработка</h6>
+        <ul class="teammatesList">
+          <li>Магомедов Умар</li>
+          <li>Раджабов Али</li>
+          <li>Мирзоев Магомед</li>
+          <li>Шахмарданов Ибрагим</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="../static/js/animations.js"></script>
+{% endblock %}
